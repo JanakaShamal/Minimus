@@ -28,3 +28,4 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 To get more help just comment on Medium your question with the necessary references  
 # minimus
+# minimus
