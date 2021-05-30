@@ -41,6 +41,7 @@
 .signup-form {
   display: flex;
   flex-flow: column;
+  margin-top: 150px;
   width: 80%;
   align-items: center;
   animation: slidedown 2s ease-in-out;
@@ -101,6 +102,10 @@
   width: 80%;
 }
 
+.signup-input-error {
+  box-shadow: 0 0 2rem rgba(255, 0, 0, 0.3);
+}
+
 
 .signup-btn {
   background-color: #00ff9b;
@@ -136,6 +141,7 @@
 
 .login-link-wrapper {
   margin-top: 3rem;
+  margin-bottom: 35px;
   animation: slideup 1s ease-in-out;
 }
 
@@ -145,4 +151,9 @@
   text-decoration: none;
   color: #ff3a82;
   margin-left: 1rem;
+}
+
+.validation-text{
+  margin-top: -10px;
+  margin-left: 20px;
 }
