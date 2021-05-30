@@ -130,11 +130,15 @@ background: linear-gradient(to bottom, #372865, #000000);
 }
 
 .sound-btn {
+  margin-top: -10px;
   outline: none;
   border: none;
   cursor: pointer;
-  background-color: transparent;
-  color: #2b244d;
+  background-color: #2b244d;
+  padding: 0.5rem;
+  border-radius: 100%;
+  color: white;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
 }
 
 .sound-btn:hover {

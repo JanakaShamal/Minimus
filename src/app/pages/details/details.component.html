@@ -56,12 +56,13 @@
               <span class="wind__text">wind</span>
               <span class="wind-value__text">{{wind}} K/M</span>
             </div>
+            <div class="hum-wind__separator">&nbsp;</div>
+            <button class="sound-btn" (click)="convertToVoice()"><i class="fas fa-volume-up"></i></button>
           </div>
         </div>
         <div class="city-name__container">
           <div class="city-name__underline">
             <span class="city-name__text">{{city}}</span>
-            <button class="sound-btn" (click)="convertToVoice()"><i class="fas fa-volume-up"></i></button>
           </div>
         </div>
       </div>
