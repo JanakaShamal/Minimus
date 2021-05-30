@@ -359,3 +359,16 @@
 
 }
 
+.sound-btn {
+  outline: none;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+  color: white;
+  margin-bottom: 3rem;
+}
+
+.sound-btn:hover {
+  color: #31feae;
+}
+

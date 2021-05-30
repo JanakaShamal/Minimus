@@ -14,6 +14,7 @@ import Speech from 'speak-tts';
 })
 export class WeatherCardComponent implements OnInit, OnDestroy {
 
+  
   @Input() set city(city: string) {
     this.cityName = city;
     this.weather.getWeather(city)
@@ -21,27 +22,6 @@ export class WeatherCardComponent implements OnInit, OnDestroy {
       .subscribe((payload) => {
         this.state = payload.weather[0].main;
         this.temp = Math.ceil(payload.main.temp);
-        const speech = new Speech() // will throw an exception if not browser supported
-        speech.init({
-          'volume': 1,
-            'lang': 'en-GB',
-            'rate': 1,
-            'pitch': 1,
-            'voice':'Google UK English Male',
-            'splitSentences': true,
-            'listeners': {
-                'onvoiceschanged': (voices) => {
-                    console.log("Event voiceschanged", voices)
-                }
-            }
-        });
-        speech.speak({
-          text: "State of the climate of " + city + " City is " + this.state + " and temperature is about " + this.temp,
-      }).then(() => {
-          console.log("Success !")
-      }).catch(e => {
-          console.error("An error occurred :", e)
-      })
       }, (err) => {
         this.errorMessage = err.error.message;
         setTimeout(() => {
@@ -116,5 +96,28 @@ export class WeatherCardComponent implements OnInit, OnDestroy {
     });
   }
 
+  convertToVoice() {
+      const speech = new Speech() // will throw an exception if not browser supported
+      speech.init({
+          'volume': 1,
+          'lang': 'en-GB',
+          'rate': 1,
+          'pitch': 1,
+          'voice':'Google UK English Male',
+          'splitSentences': true,
+          'listeners': {
+              'onvoiceschanged': (voices) => {
+                  console.log("Event voiceschanged", voices)
+              }
+          }
+      });
+      speech.speak({
+        text: "State of the climate of " + this.cityName + " City is " + this.state + " and temperature is about " + this.temp,
+    }).then(() => {
+        console.log("Success !")
+    }).catch(e => {
+        console.error("An error occurred :", e)
+    })
+  }
 
 }
