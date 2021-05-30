@@ -91,6 +91,16 @@
   animation: slideright 2s ease-out;
 }
 
+.login-welcome-sub-text {
+  color: white;
+  letter-spacing: 0.03rem;
+  margin: 0 0 2rem 3rem;
+  font-size: 1.5rem;
+  position: relative;
+  z-index: 5;
+  animation: slideright 2s ease-out;
+}
+
 .login-input {
   margin: 1rem 0;
   padding: 1.5rem;
