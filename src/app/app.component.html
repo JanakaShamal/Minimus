@@ -15,9 +15,9 @@
     </section>
     <section class="menu-body">
       <ul class="menu-links" [ngClass]="{'menu-links-dark': darkModeActive}">
-        <li class="menu-link" [routerLinkActiveOptions]="{exact:true}" routerLink="" routerLinkActive="link-active" (click)="toggleMenu()">Home</li>
-        <li class="menu-link" [routerLinkActiveOptions]="{exact:true}" routerLink="/add" routerLinkActive="link-active" (click)="toggleMenu()">Add City</li>
-        <li (click)="logout()" class="menu-link">Logout</li>
+        <li class="menu-link" [routerLinkActiveOptions]="{exact:true}" routerLink="" routerLinkActive="link-active" (click)="toggleMenu()"><i class="fas fa-home"></i>  Home </li>
+        <li class="menu-link" [routerLinkActiveOptions]="{exact:true}" routerLink="/add" routerLinkActive="link-active" (click)="toggleMenu()"><i class="fas fa-plus"></i>  Add City </li>
+        <li (click)="logout()" class="menu-link"><i class="fas fa-sign-out-alt"></i>  Logout</li>
       </ul>
     </section>
     <section class="menu-footer">
