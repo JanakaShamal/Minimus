@@ -8,11 +8,11 @@
       <form class="signup-form" (ngSubmit)="signup($event)" #authform="ngForm">
         <!--Email-->
         <input [class.signup-input-error]="!email.valid && email.touched" email ngModel #email="ngModel" type="email" placeholder="Email" name="email" class="signup-input" required>
-        <small class="text-danger validation-text col-10" *ngIf="!email.valid && email.touched">Provide a valid email address</small>
+        <small class="validation-text" *ngIf="!email.valid && email.touched">Provide a valid email address</small>
         <!--Password-->
         <input [class.signup-input-error]="!password.valid && password.touched" ngModel #password="ngModel" type="password" placeholder="Password" name="password" class="signup-input" minlength="6"
                required>
-        <small class="text-danger validation-text col-10" *ngIf="!password.valid && password.touched">Provide a password with min length of 6 character</small>       
+        <small class="validation-text" *ngIf="!password.valid && password.touched">Provide a password with min length of 6 character</small>       
         <!--Confirm Password-->
         <input ngModel name="confirm_password"  type="password" placeholder="Confirm Password" class="signup-input" minlength="6"
                required>

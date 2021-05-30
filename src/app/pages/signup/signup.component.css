@@ -155,5 +155,8 @@
 
 .validation-text{
   margin-top: -10px;
-  margin-left: 20px;
+  margin-left: -20px;
+  width: max-content;
+  float: left;
+  color: red;
 }
