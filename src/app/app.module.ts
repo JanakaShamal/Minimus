@@ -1,3 +1,4 @@
+import { UniquePipe } from './services/util/uniquePipe';
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 
@@ -18,7 +19,6 @@ import {environment} from '../environments/environment';
 import {NguiAutoCompleteModule} from '@ngui/auto-complete';
 import {FormsModule} from '@angular/forms';
 import { ServiceWorkerModule } from '@angular/service-worker';
-import { SimpleNotificationsModule } from 'angular2-notifications';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,6 +30,7 @@ import { SimpleNotificationsModule } from 'angular2-notifications';
     LoginComponent,
     SignupComponent,
     ErrorComponent,
+    UniquePipe
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
@@ -38,8 +39,7 @@ import { SimpleNotificationsModule } from 'angular2-notifications';
     NguiAutoCompleteModule,
     FormsModule,
     AngularFireLite.forRoot(environment.config),
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
-    SimpleNotificationsModule.forRoot()
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   bootstrap: [AppComponent]
 })
