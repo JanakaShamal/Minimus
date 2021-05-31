@@ -97,9 +97,11 @@ export class WeatherCardComponent implements OnInit, OnDestroy{
   }
 
   removeCity() {
-    this.fb.removeCity(this.cityName).subscribe(() => {
-      window.location.reload();
-    });
+    if(confirm("Are You Sure To Remove " + this.cityName + " City From Watch List?")){
+      this.fb.removeCity(this.cityName).subscribe(() => {
+        window.location.reload();
+      });
+    }
   }
 
   convertToVoice() {
