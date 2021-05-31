@@ -18,12 +18,18 @@ export class SignupComponent implements OnInit {
   }
 
   signup(e) {
+    if( e.target.password.value===e.target.confirm_password.value){
     this.fb.signup(e.target.email.value, e.target.password.value).pipe(first()).subscribe(() => {
       this.router.navigateByUrl('');
     }, (err) => {
       this.errorMessage = err;
       setTimeout(() => this.errorMessage = '', 2000);
     });
+    }
+    else{
+      this.errorMessage = "Confirmation password does not match";
+      setTimeout(() => this.errorMessage = '', 2000);
+    }
   }
 
 }

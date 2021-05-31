@@ -359,3 +359,18 @@
 
 }
 
+.sound-btn {
+  outline: none;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+  color: #2b244d;
+  background-color: white;
+  padding: 0.5rem;
+  border-radius: 100%;
+}
+
+.sound-btn:hover {
+  color: #31feae;
+}
+

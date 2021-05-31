@@ -5,7 +5,7 @@ import {forkJoin, Observable, Subscription} from 'rxjs';
 import {UiService} from '../../services/ui/ui.service';
 import {concatMap} from 'rxjs/operators';
 import {TwitterService} from '../../services/twitter/twitter.service';
-
+import Speech from 'speak-tts';
 @Component({
   selector: 'app-details',
   templateUrl: './details.component.html',
@@ -101,5 +101,29 @@ export class DetailsComponent implements OnInit, OnDestroy {
     this.sub1.unsubscribe();
     this.sub2.unsubscribe();
   }
+
+  convertToVoice() {
+    const speech = new Speech() // will throw an exception if not browser supported
+    speech.init({
+        'volume': 1,
+        'lang': 'en-GB',
+        'rate': 1,
+        'pitch': 1,
+        'voice':'Google UK English Male',
+        'splitSentences': true,
+        'listeners': {
+            'onvoiceschanged': (voices) => {
+                console.log("Event voiceschanged", voices)
+            }
+        }
+    });
+    speech.speak({
+      text: "Today is" + this.today + ", and State of the climate of " + this.city + " City is " + this.state + ". temperature is about " + this.temp + ", humidity is about" + this.hum + ", and speed of the wind is about " + this.wind,
+  }).then(() => {
+      console.log("Success !")
+  }).catch(e => {
+      console.error("An error occurred :", e)
+  })
+}
 
 }

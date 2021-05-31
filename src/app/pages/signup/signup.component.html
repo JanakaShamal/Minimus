@@ -6,8 +6,15 @@
       <!-- signup form -->
 
       <form class="signup-form" (ngSubmit)="signup($event)" #authform="ngForm">
-        <input ngModel type="email" autofocus placeholder="Email" name="email" class="signup-input" required>
-        <input ngModel type="password" placeholder="Password" name="password" class="signup-input" minlength="6"
+        <!--Email-->
+        <input [class.signup-input-error]="!email.valid && email.touched" email ngModel #email="ngModel" type="email" placeholder="Email" name="email" class="signup-input" required>
+        <small class="validation-text" *ngIf="!email.valid && email.touched">Provide a valid email address</small>
+        <!--Password-->
+        <input [class.signup-input-error]="!password.valid && password.touched" ngModel #password="ngModel" type="password" placeholder="Password" name="password" class="signup-input" minlength="6"
+               required>
+        <small class="validation-text" *ngIf="!password.valid && password.touched">Provide a password with min length of 6 character</small>       
+        <!--Confirm Password-->
+        <input ngModel name="confirm_password"  type="password" placeholder="Confirm Password" class="signup-input" minlength="6"
                required>
         <input type="submit" name="submit" value="Signup" class="signup-btn" [class.btn-disabled]="!authform.form.valid"
                [disabled]="!authform.form.valid">
@@ -23,6 +30,7 @@
     <aside class="signup-aside">
       <div class="signup-aside-overlay"></div>
       <h1 class="signup-welcome-text">Join Minimus Today!</h1>
+      <h2 class="signup-welcome-sub-text">All In One Platform To Monitor The Weather Of Your Place And Favourite Cities All Around The World!</h2>
       <hr class="signup-aside-hr">
     </aside>
   </div>

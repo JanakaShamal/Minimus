@@ -5,6 +5,7 @@ import {UiService} from '../../services/ui/ui.service';
 import {Subscription} from 'rxjs';
 import {first} from 'rxjs/operators';
 import {FbService} from '../../services/fb/fb.service';
+import Speech from 'speak-tts';
 
 @Component({
   selector: 'app-weather-card',
@@ -13,6 +14,7 @@ import {FbService} from '../../services/fb/fb.service';
 })
 export class WeatherCardComponent implements OnInit, OnDestroy {
 
+  
   @Input() set city(city: string) {
     this.cityName = city;
     this.weather.getWeather(city)
@@ -94,5 +96,28 @@ export class WeatherCardComponent implements OnInit, OnDestroy {
     });
   }
 
+  convertToVoice() {
+      const speech = new Speech() // will throw an exception if not browser supported
+      speech.init({
+          'volume': 1,
+          'lang': 'en-GB',
+          'rate': 1,
+          'pitch': 1,
+          'voice':'Google UK English Male',
+          'splitSentences': true,
+          'listeners': {
+              'onvoiceschanged': (voices) => {
+                  console.log("Event voiceschanged", voices)
+              }
+          }
+      });
+      speech.speak({
+        text: "State of the climate of " + this.cityName + " City is " + this.state + " and temperature is about " + this.temp,
+    }).then(() => {
+        console.log("Success !")
+    }).catch(e => {
+        console.error("An error occurred :", e)
+    })
+  }
 
 }
