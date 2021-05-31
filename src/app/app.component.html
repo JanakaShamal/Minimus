@@ -62,11 +62,11 @@
 
     </div>
 
-    <h3 class="date__text">Today</h3>
+    <h3 class="date__text">{{today | date}} {{today | date:'h:mm a'}}</h3>
 
 
     <div class="mode-toggle__container">
-      <span class="mode-toggle__text">Light</span>
+      <span class="mode-toggle__text"><i class="fas fa-sun"></i></span>
 
       <label class="toggle-button__container">
         <input (click)="modeToggleSwitch()" type="checkbox" class="mode-toggle__input"/>
@@ -75,7 +75,7 @@
       </label>
 
 
-      <span class="mode-toggle__text">Dark</span>
+      <span class="mode-toggle__text"><i class="fas fa-moon"></i></span>
     </div>
 
   </header>

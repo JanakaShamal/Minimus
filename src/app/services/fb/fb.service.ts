@@ -38,6 +38,15 @@ export class FbService {
       }), first());
   }
 
+  removeCity(name: string) {
+    return this.auth.uid()
+      .pipe(switchMap((uid) => {
+        return this.fs
+          .remove(`${uid}/${name}`)
+          .pipe(first());
+      }), first());
+  }
+
 }
 
 

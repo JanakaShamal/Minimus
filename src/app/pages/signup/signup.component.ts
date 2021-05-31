@@ -11,6 +11,7 @@ import {first} from 'rxjs/operators';
 export class SignupComponent implements OnInit {
   errorMessage;
 
+
   constructor(public fb: FbService, public router: Router) {
   }
 

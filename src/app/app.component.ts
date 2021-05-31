@@ -12,7 +12,7 @@ import {Router} from '@angular/router';
 export class AppComponent implements OnInit, OnDestroy {
   showMenu = false;
   darkModeActive: boolean;
-
+  today: number = Date.now();
   userEmail = '';
 
   constructor(public ui: UiService, public fb: FbService, public router: Router) {

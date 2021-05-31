@@ -18,7 +18,7 @@ import {environment} from '../environments/environment';
 import {NguiAutoCompleteModule} from '@ngui/auto-complete';
 import {FormsModule} from '@angular/forms';
 import { ServiceWorkerModule } from '@angular/service-worker';
-
+import { SimpleNotificationsModule } from 'angular2-notifications';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +38,8 @@ import { ServiceWorkerModule } from '@angular/service-worker';
     NguiAutoCompleteModule,
     FormsModule,
     AngularFireLite.forRoot(environment.config),
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    SimpleNotificationsModule.forRoot()
   ],
   bootstrap: [AppComponent]
 })

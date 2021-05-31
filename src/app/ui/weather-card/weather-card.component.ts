@@ -13,7 +13,6 @@ import Speech from 'speak-tts';
   styleUrls: ['./weather-card.component.css']
 })
 export class WeatherCardComponent implements OnInit, OnDestroy {
-
   
   @Input() set city(city: string) {
     this.cityName = city;
@@ -60,6 +59,8 @@ export class WeatherCardComponent implements OnInit, OnDestroy {
   errorMessage: string;
   cityName;
   cityAdded = false;
+  cityRemoved = false;
+  
 
   constructor(public weather: WeatherService,
               public router: Router,
@@ -93,6 +94,17 @@ export class WeatherCardComponent implements OnInit, OnDestroy {
       this.cityAdded = true;
       this.cityStored.emit();
       setTimeout(() => this.cityAdded = false, 2000);
+    });
+  }
+
+  removeCity() {
+    this.fb.removeCity(this.cityName).subscribe(() => {
+      this.cityRemoved = true;
+      let currentUrl = this.router.url;
+      this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+      this.router.onSameUrlNavigation = 'reload';
+      this.router.navigate([currentUrl]);
+      
     });
   }
 

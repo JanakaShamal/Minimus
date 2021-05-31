@@ -75,6 +75,7 @@
   </section>
   
   <button class="add-city-btn" *ngIf="addMode" (click)="addCity()">ADD CITY +</button>
+  <button class="remove-city-btn" *ngIf="!addMode" (click)="removeCity();$event.stopPropagation()">REMOVE CITY  <i class="fas fa-trash-alt"></i></button>
 
 </section>
 
@@ -87,5 +88,4 @@
           d="M38 15L22 33l-10-8"/>
   </svg>
 </div>
-
 <app-error [message]="errorMessage"></app-error>

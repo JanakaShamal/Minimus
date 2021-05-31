@@ -129,6 +129,23 @@ background: linear-gradient(to bottom, #372865, #000000);
   background-color: #31feae;
 }
 
+.remove-city-btn {
+  outline: none;
+  margin-bottom: 1rem;
+  border: none;
+  cursor: pointer;
+  border-radius: 3rem;
+  padding: 1rem 2rem;
+  color: white;
+  background-color: #fe3131;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.remove-city-btn:hover {
+  background-color: #2b244d;
+}
+
 .sound-btn {
   margin-top: -10px;
   outline: none;
